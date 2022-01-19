@@ -22,14 +22,6 @@ export class PersonsComponent implements OnInit {
                                     : this.persons
   }
 
-  filtrarPersons(filtrarPor: string): any {
-    filtrarPor = filtrarPor.toLocaleLowerCase()
-    return this.persons.filter(
-      (person: { name: string; }) => person.name.toLocaleLowerCase().indexOf(filtrarPor)
-    )
-  }
-
-
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
@@ -43,4 +35,10 @@ export class PersonsComponent implements OnInit {
     )
   }
 
+  filtrarPersons(filtrarPor: string): any {
+    filtrarPor = filtrarPor.toLocaleLowerCase()
+    return this.persons.filter(
+      (person: { name: string; }) => person.name.toLocaleLowerCase().indexOf(filtrarPor)
+    )
+  }
 }

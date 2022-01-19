@@ -21,14 +21,6 @@ export class BooksComponent implements OnInit {
     this.books = this.filtroLista ? this.filtrarBooks(this.filtroLista)
                                   : this.books
   }
-
-  filtrarBooks(filtrarPor: string): any {
-    filtrarPor = filtrarPor.toLocaleLowerCase()
-    return this.books.filter(
-      (book: { title: string; }) => book.title.toLocaleLowerCase().indexOf(filtrarPor)
-    )
-  }
-
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
@@ -41,4 +33,12 @@ export class BooksComponent implements OnInit {
       error => console.log(error)
     )
   }
+
+  filtrarBooks(filtrarPor: string): any {
+    filtrarPor = filtrarPor.toLocaleLowerCase()
+    return this.books.filter(
+      (book: { title: string; }) => book.title.toLocaleLowerCase().indexOf(filtrarPor)
+    )
+  }
+
 }
