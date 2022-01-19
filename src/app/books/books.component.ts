@@ -10,7 +10,24 @@ export class BooksComponent implements OnInit {
 
   public urlApi: string = "http://localhost/5000/api/books/v1"
   public books: any = []
-  filtroLista: string = ''
+  private _filtroLista: string = ''
+
+  public get filtroLista(){
+    return this._filtroLista
+  }
+
+  public set(value: string){
+    this._filtroLista = value
+    this.books = this.filtroLista ? this.filtrarBooks(this.filtroLista)
+                                  : this.books
+  }
+
+  filtrarBooks(filtrarPor: string): any {
+    filtrarPor = filtrarPor.toLocaleLowerCase()
+    return this.books.filter(
+      (book: { title: string; }) => book.title.toLocaleLowerCase().indexOf(filtrarPor)
+    )
+  }
 
   constructor(private http: HttpClient) { }
 
