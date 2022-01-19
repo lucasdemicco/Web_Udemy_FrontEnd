@@ -1,17 +1,16 @@
 <h2>Persons</h2>
 <hr>
-
 <div class="form-inline">
   <div class="input-group mb-2">
+    <label class="mr-2">Filtro: {{filtroLista}}</label>
     <input 
     type="text" 
     class="form-control mr-2" 
     placeholder="buscar"
-    [(ngModel)]="filtroLista">
+    [(ngModel)]="_personsFiltrados">
     <button class="btn btn-outline-success">Buscar</button>
   </div>
 </div>
-<h3>Filtro: {{filtroLista}}</h3>
 <table class="table table-striped">
   <thead class="table-dark">
     <tr>
@@ -23,7 +22,7 @@
     </tr>
   </thead>
   <tbody *ngIf="persons && persons.length">
-    <tr *ngFor="let person in persons">
+    <tr *ngFor="let person in _personsFiltrados">
       <th>{{person.id}}</th>
       <th>{{person.firstName}}</th>
       <th>{{person.lastName}}</th>

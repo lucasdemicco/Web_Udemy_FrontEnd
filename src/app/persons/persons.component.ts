@@ -11,6 +11,7 @@ export class PersonsComponent implements OnInit {
   public urlApi: string = 'http://localhost/5000/api/person/v1'
   public persons: any = []
   private _filtroLista: string = ''
+  public _personsFiltrados: any = [] 
 
   public get filtroLista(){
     return this._filtroLista
@@ -18,7 +19,7 @@ export class PersonsComponent implements OnInit {
 
   public set(value: string){
     this._filtroLista = value
-    this.persons = this.filtroLista ? this.filtrarPersons(this.filtroLista)
+    this._personsFiltrados = this._filtroLista ? this.filtrarPersons(this.filtroLista)
                                     : this.persons
   }
 
@@ -38,7 +39,8 @@ export class PersonsComponent implements OnInit {
   filtrarPersons(filtrarPor: string): any {
     filtrarPor = filtrarPor.toLocaleLowerCase()
     return this.persons.filter(
-      (person: { name: string; }) => person.name.toLocaleLowerCase().indexOf(filtrarPor)
+      (person: { firstName: string; lastName: string }) => person.firstName.toLocaleLowerCase().indexOf(filtrarPor) !== -1
+      || person.lastName.toLocaleLowerCase().indexOf(filtrarPor) !== -1
     )
   }
 }
