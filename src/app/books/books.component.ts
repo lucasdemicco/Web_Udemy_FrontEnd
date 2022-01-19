@@ -10,6 +10,7 @@ export class BooksComponent implements OnInit {
 
   public urlApi: string = "http://localhost/5000/api/books/v1"
   public books: any = []
+  filtroLista: string = ''
 
   constructor(private http: HttpClient) { }
 

@@ -8,9 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PersonsComponent implements OnInit {
 
-  public persons: any = []
-
   public urlApi: string = 'http://localhost/5000/api/person/v1'
+  public persons: any = []
+  filtroLista: string = ''
 
   constructor(private http: HttpClient) { }
 
