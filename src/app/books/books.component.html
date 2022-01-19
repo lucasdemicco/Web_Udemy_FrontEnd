@@ -1,3 +1,37 @@
-<p>
-  books works!
-</p>
+<h2>Books</h2>
+<hr>
+
+<form action="" class="form-inline">
+  <div class="input-group mb-2">
+    <input type="text" class="form-control mr-2" placeholder="buscar">
+    <button class="btn btn-outline-success">Buscar</button>
+  </div>
+</form>
+
+<table class="table table-striped">
+  <thead class="table-dark">
+    <tr>
+      <th>#</th>
+      <th>Autor</th>
+      <th>Título</th>
+      <th>Lançamento</th>
+      <th>Preço</th>
+    </tr>
+  </thead>
+  <tbody *ngIf="books && books.length">
+    <tr *ngFor="let book in books">
+      <th>{{book.id}}</th>
+      <th>{{book.author}}</th>
+      <th>{{book.title}}</th>
+      <th>{{book.launchDate}}</th>
+      <th>{{book.price}}</th>
+    </tr>
+  </tbody>
+    <tfoot *ngIf="!books.length">
+      <tr>
+        <td colspan="8" class="text-center">
+          <h4>Nenhum livro encontrado!</h4>
+        </td>
+      </tr>
+    </tfoot>
+</table>

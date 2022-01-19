@@ -1,3 +1,37 @@
-<p>
-  persons works!
-</p>
+<h2>Persons</h2>
+<hr>
+
+<form action="" class="form-inline">
+  <div class="input-group mb-2">
+    <input type="text" class="form-control mr-2" placeholder="buscar">
+    <button class="btn btn-outline-success">Buscar</button>
+  </div>
+</form>
+
+<table class="table table-striped">
+  <thead class="table-dark">
+    <tr>
+      <th>#</th>
+      <th>Nome</th>
+      <th>Sobrenome</th>
+      <th>Endereço</th>
+      <th>Sexo</th>
+    </tr>
+  </thead>
+  <tbody *ngIf="persons && persons.length">
+    <tr *ngFor="let person in persons">
+      <th>{{person.id}}</th>
+      <th>{{person.firstName}}</th>
+      <th>{{person.lastName}}</th>
+      <th>{{person.address}}</th>
+      <th>{{person.gender}}</th>
+    </tr>
+  </tbody>
+  <tfoot *ngIf="!persons.length">
+    <tr>
+      <td colspan="8" class="text-center">
+        <h4>Nenhuma pessoa encontrada!</h4>
+      </td>
+    </tr>
+  </tfoot>
+</table>

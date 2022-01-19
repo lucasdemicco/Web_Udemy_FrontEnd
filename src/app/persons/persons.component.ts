@@ -8,13 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PersonsComponent implements OnInit {
 
-  public persons: any
+  public persons: any = []
 
   public urlApi: string = 'http://localhost/5000/api/person/v1'
 
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
+    this.getPersons()
   }
 
   public getPersons() : any{
