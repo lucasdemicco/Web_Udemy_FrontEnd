@@ -7,16 +7,20 @@ import { PersonsComponent } from './persons/persons.component';
 import { BooksComponent } from './books/books.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NavComponent } from './nav/nav.component';
+import { CollapseModule } from 'ngx-bootstrap/collapse';
 
 @NgModule({
-  declarations: [		
+  declarations: [			
     AppComponent,
       PersonsComponent,
-      BooksComponent
+      BooksComponent,
+      NavComponent
    ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    CollapseModule.forRoot(),
     AppRoutingModule,
     HttpClientModule
   ],
